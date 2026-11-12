@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Naruto Shippuden palette */
+  --color-ink: #0b0e17;
+  --color-scroll: #f6ecd3;
+  --color-leaf: #1f6f43;
+  --color-leaf-bright: #34d399;
+  --color-foil: #ff7a1a;
+  --color-rank: #ffb347;
+  --color-sage: #7c3aed;
+  --color-blood: #dc2626;
+  --color-sand: #e0561b;
+  --color-paper: #fffaf0;
+
+  --font-display: "Cinzel", serif;
+  --font-body: "Nunito", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ink);
+  color: var(--color-scroll);
+}
+
+/* Sharingan swirl backdrop */
+.sharingan-bg {
+  background:
+    radial-gradient(circle at 85% 15%, rgba(220, 38, 38, 0.12) 0, transparent 30%),
+    radial-gradient(circle at 10% 80%, rgba(255, 122, 26, 0.10) 0, transparent 35%),
+    radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.06) 0, transparent 60%),
+    var(--color-ink);
+}
+
+/* Kunai line under headings */
+.kunai-underline {
+  position: relative;
+  display: inline-block;
+}
+.kunai-underline::after {
+  content: "";
+  display: block;
+  height: 3px;
+  margin-top: 0.35rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--color-foil), var(--color-rank), transparent);
+}
+
+/* Scroll / parchment card */
+.scroll-card {
+  background: linear-gradient(180deg, rgba(246, 236, 211, 0.06), rgba(246, 236, 211, 0.02));
+  border: 1px solid rgba(255, 179, 71, 0.25);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+/* Rasengan glow button */
+.rasengan-btn {
+  background: radial-gradient(circle at 30% 30%, #ffd27a, var(--color-foil) 60%, #d95e00);
+  color: #1a1205;
+  font-weight: 800;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+.rasengan-btn:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 0 22px rgba(255, 122, 26, 0.55);
+  filter: brightness(1.06);
+}
+
+/* Chakra input fields */
+.chakra-input {
+  background: rgba(11, 14, 23, 0.7);
+  border: 1px solid rgba(255, 179, 71, 0.3);
+  color: var(--color-scroll);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.chakra-input:focus {
+  outline: none;
+  border-color: var(--color-foil);
+  box-shadow: 0 0 0 3px rgba(255, 122, 26, 0.2);
+}
+.chakra-input::placeholder {
+  color: rgba(246, 236, 211, 0.35);
+}
+
+/* Subtle rotation for the logo swirl */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 14s linear infinite;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-ink); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-foil), var(--color-sand));
+  border-radius: 8px;
+}
